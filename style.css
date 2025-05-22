@@ -41,6 +41,67 @@ body {
   z-index: 2; /* Ensures navbar appears above the background circle */
 }
 
+/* Align the navbar container with the page containers */
+@media (min-width: 992px) {
+  .navbar .container {
+    padding-left: 165px;
+    padding-right: 165px;
+    max-width: 100%;
+  }
+}
+
+/* Navbar toggler (hamburger button) styling */
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Mobile navbar styling */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    text-align: left;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-nav {
+    margin-bottom: 1rem;
+    padding-left: 15px;
+  }
+  
+  .navbar-brand {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin: 0 auto;
+  }
+  
+  /* Fix for Buy Now button */
+  .ms-auto {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding-left: 15px;
+  }
+  
+  .ms-auto .btn {
+    display: inline-block;
+    width: auto;
+  }
+}
+
 /* Custom styling for Bootstrap's nav-link class */
 .navbar .nav-link {
   color: #4a5568; /* Medium gray color for nav links */
@@ -64,6 +125,32 @@ body {
   font-size: 26px !important;
   line-height: 38px !important;
   letter-spacing: 0px !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-toggler {
+  position: absolute;
+  left: 15px;
+  z-index: 10;
+}
+
+/* Add a Buy Now button that shows outside the collapsed menu on medium screens */
+@media (max-width: 991px) {
+  .navbar .container {
+    position: relative;
+    padding-right: 80px;
+  }
+  
+  /* Add a visible Buy Now button outside the menu */
+  .navbar::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+  }
 }
 /* 
  * Hero section styling 
@@ -86,13 +173,39 @@ body {
   padding: 3rem 0; /* Adds vertical spacing */
 }
 
+/* Add padding to hero content on small screens */
+@media (max-width: 991px) {
+  .hero-content {
+    padding: 2rem 20px;
+  }
+  
+  .container.hero-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .hero-section {
+    min-height: auto;
+    padding-top: 100px;
+  }
+}
+
+/* Align the hero content with the page containers */
+@media (min-width: 992px) {
+  .container.hero-content {
+    padding-left: 165px;
+    padding-right: 165px;
+    max-width: 100%;
+  }
+}
+
 /* 
  * Heading styling 
  * Custom styling for the main headline
  */
 .hero-heading {
   font-weight: 700; /* Bold font weight for emphasis */
-  color: #0d1b3e; /* Dark blue color for contrast and readability */
+  color: #0d1c41; /* Dark blue color for contrast and readability */
   margin-bottom: 1.5rem; /* Spacing between heading and paragraph */
   font-size: 2.5rem; /* Large font size for emphasis */
 }
@@ -175,13 +288,32 @@ body {
   align-items: center;
 }
 
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 991px) {
+  .image-container {
+    margin: 20px 0;
+  }
+}
+
 .page-main-text h1 {
   font-family: Roboto;
   font-weight: 500;
-  font-size: 36px;
-  line-height: 48px;
+  font-size: 28px;
+  line-height: 36px;
   letter-spacing: 0px;
   color: #091133;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .page-main-text h1 {
+    font-size: 36px;
+    line-height: 48px;
+  }
 }
 
 .page-main-text p {
@@ -191,7 +323,13 @@ body {
   line-height: 26px;
   letter-spacing: 0px;
   color: #6f7cb2;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .page-main-text p {
+    margin-bottom: 40px;
+  }
 }
 
 .page-container {
@@ -200,7 +338,25 @@ body {
   align-items: center; /* optional */
   gap: 40px; /* spacing between blocks */
   /* padding: 40px; */
-  padding: 109px 165px 108px
+  padding: 60px 40px;
+}
+
+@media (min-width: 992px) {
+  .page-container {
+    padding: 109px 165px 108px;
+  }
+}
+
+@media (max-width: 991px) {
+  .page-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Reverse order for alternating layouts on mobile */
+  .page-container:nth-child(odd) .image-container {
+    order: -1;
+  }
 }
 
 .page-container > * {
@@ -210,8 +366,6 @@ body {
 .purhcase-now-button {
   width: 150px;
   height: 32px;
-  top: 3404px;
-  left: 826px;
   background-color: #111b47;
   font-family: Roboto;
   font-weight: 500;
@@ -220,21 +374,55 @@ body {
   letter-spacing: 0px;
   text-align: center;
   color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .purhcase-now-button {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
 }
 .card-container {
   display: flex;
   flex-direction: row;
   align-items: center; /* optional */
-  margin-top: 80px;
-  gap: 30px; /* spacing between blocks
+  margin-top: 40px;
+  gap: 30px; /* spacing between blocks */
   /* padding: 40px;
   margin: 50px; */
+}
+
+@media (max-width: 767px) {
+  .card-container {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    margin-top: 80px;
+  }
 }
 
 .card {
   flex: 1; /* Allows cards to grow and fill the container */
   border: none;
 }
+
+@media (max-width: 767px) {
+  .card {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
 .card h3 {
   font-family: Roboto;
   font-weight: 500;
@@ -257,10 +445,18 @@ body {
 .final-page h1 {
   font-family: Roboto;
   font-weight: 500;
-  font-size: 36px;
-  line-height: 48px;
+  font-size: 28px;
+  line-height: 36px;
   letter-spacing: 0px;
   color: #091133;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .final-page h1 {
+    font-size: 36px;
+    line-height: 48px;
+  }
 }
 
 .final-page p {
@@ -270,9 +466,14 @@ body {
   line-height: 26px;
   letter-spacing: 0px;
   color: #6f7cb2;
-  margin-bottom: 35px;
-  justify-content: justify;
-  text-align-last: center;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .final-page p {
+    margin-bottom: 35px;
+  }
 }
 
 .final-page-text {
@@ -283,12 +484,31 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 172px;
-  padding-top: 190px;
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
+
+@media (min-width: 992px) {
+  .final-page-text {
+    padding-bottom: 172px;
+    padding-top: 190px;
+  }
 }
 
 .final-page-header-text {
-  padding: 0px 350px 0px;
+  padding: 0px 20px;
+}
+
+@media (min-width: 768px) {
+  .final-page-header-text {
+    padding: 0px 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .final-page-header-text {
+    padding: 0px 350px 0px;
+  }
 }
 
 .final-page h1 {
@@ -298,12 +518,19 @@ body {
 #price-text {
   font-family: Roboto;
   font-weight: 500;
-  font-size: 50px;
-  line-height: 66px;
+  font-size: 36px;
+  line-height: 48px;
   letter-spacing: 1px;
   text-align: center;
   color: #222f65;
   margin-bottom: 0px;
+}
+
+@media (min-width: 768px) {
+  #price-text {
+    font-size: 50px;
+    line-height: 66px;
+  }
 }
 
 #price-content {
@@ -314,7 +541,13 @@ body {
   letter-spacing: 0px;
   text-align: center;
   color: #37447e;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  #price-content {
+    margin-bottom: 60px;
+  }
 }
 
 #button-text {
@@ -330,8 +563,20 @@ body {
 
 .footer {
   background-color: #E7ECFF;
-  padding: 61px 165px 32px;
+  padding: 30px 20px;
   font-family: Roboto, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 40px 60px 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .footer {
+    padding: 61px 165px 32px;
+  }
 }
 
 .footer-top {
@@ -340,6 +585,13 @@ body {
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
+  gap: 15px;
+}
+
+@media (max-width: 767px) {
+  .footer-top {
+    flex-direction: column;
+  }
 }
 
 .footer-text {
@@ -358,10 +610,8 @@ body {
   color: #091133;
 }
 .footer-purhcase-now-button {
-  width: 109;
-  height: 26;
-  top: 4479px;
-  left: 1166px;
+  width: 109px;
+  height: 26px;
   background-color: #111b47;
   font-family: Roboto;
   font-weight: 500;
@@ -370,6 +620,16 @@ body {
   letter-spacing: 0px;
   text-align: center;
   color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .footer-purhcase-now-button {
+    width: 150px;
+    height: 32px;
+  }
 }
 .footer-divider {
   margin: 40px 0 20px;
@@ -383,6 +643,14 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .footer-links a {
@@ -393,8 +661,21 @@ body {
   text-decoration: none;
 }
 
+@media (max-width: 767px) {
+  .footer-links a {
+    margin: 0 10px;
+    display: inline-block;
+  }
+}
+
 .footer-icons a {
   margin-left: 15px;
+}
+
+@media (max-width: 767px) {
+  .footer-icons a {
+    margin: 0 8px;
+  }
 }
 
 .footer-icons img {
@@ -446,6 +727,7 @@ body {
     display: block; /* Block display for full width */
     width: 100%; /* Full width */
   }
+  
   /* Smaller brand text on mobile */
   .navbar .navbar-brand {
     font-size: 1.25rem; /* Smaller font size */
@@ -455,4 +737,53 @@ body {
   .hero-section {
     min-height: auto; /* Allows section to shrink to content height */
   }
+}
+
+/* Small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .navbar .nav-link {
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 20px !important;
+  }
+  
+  .hero-heading {
+    font-size: 1.5rem;
+  }
+  
+  .hero-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .page-container {
+    padding: 40px 20px;
+  }
+}
+/* Fix for navbar on mobile */
+@media (max-width: 991px) {
+  .navbar .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .navbar-nav {
+    margin-bottom: 10px;
+  }
+  
+  .navbar-brand {
+    margin: 10px 0;
+  }
+  
+  .ms-auto {
+    margin-top: 10px;
+  }
+}
+
+/* Fix for SVG curve on mobile */
+.curve {
+  width: 100%;
+  height: auto;
 }

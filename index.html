@@ -27,28 +27,34 @@
       <!-- container: Bootstrap container class - provides a centered, fixed-width container -->
       <!-- Centers content and provides consistent padding on the sides -->
       <div class="container">
-        <!-- Left navigation links -->
-        <!-- navbar-nav: Bootstrap class for styling nav links within navbar -->
-        <!-- me-auto: Margin-end auto - pushes the element to the left by adding auto margin to the right -->
-        <div class="navbar-nav me-auto">
-          <!-- nav-link: Bootstrap class for styling navigation links with proper spacing and hover states -->
-          <a class="nav-link" href="#">Home</a>
-          <a class="nav-link" href="#">About</a>
-          <a class="nav-link" href="#">Contact</a>
-        </div>
-
-        <!-- Center brand/title -->
+        <!-- Hamburger menu toggle button for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Brand/title -->
         <!-- navbar-brand: Bootstrap class for company/product/project name styling -->
-        <!-- mx-auto: Margin left and right auto - centers the element horizontally -->
-        <!-- fw-bold: Font-weight bold - makes the text bold for emphasis -->
         <a class="navbar-brand mx-auto" href="#">Landing</a>
 
-        <!-- Right button -->
-        <!-- ms-auto: Margin-start auto - pushes the element to the right by adding auto margin to the left -->
-        <div class="ms-auto">
-          <!-- btn: Core Bootstrap button class -->
-          <!-- btn-primary: Bootstrap contextual color class - uses the primary theme color (customized in our CSS) -->
-          <a href="#" class="btn btn-primary">Buy Now</a>
+        <!-- Collapsible navbar content -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <!-- Left navigation links -->
+          <!-- navbar-nav: Bootstrap class for styling nav links within navbar -->
+          <!-- me-auto: Margin-end auto - pushes the element to the left by adding auto margin to the right -->
+          <div class="navbar-nav me-auto">
+            <!-- nav-link: Bootstrap class for styling navigation links with proper spacing and hover states -->
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Contact</a>
+          </div>
+
+          <!-- Right button -->
+          <!-- ms-auto: Margin-start auto - pushes the element to the right by adding auto margin to the left -->
+          <div class="ms-auto">
+            <!-- btn: Core Bootstrap button class -->
+            <!-- btn-primary: Bootstrap contextual color class - uses the primary theme color (customized in our CSS) -->
+            <a href="#" class="btn btn-primary">Buy Now</a>
+          </div>
         </div>
       </div>
     </nav>
