@@ -200,6 +200,7 @@ body {
   align-items: center; /* optional */
   gap: 40px; /* spacing between blocks */
   /* padding: 40px; */
+  padding: 109px 165px 108px
 }
 
 .page-container > * {
@@ -374,7 +375,6 @@ body {
   margin: 40px 0 20px;
   height: 5px;
   color: black;
-  /* margin: 20px auto; */
 }
 
 
