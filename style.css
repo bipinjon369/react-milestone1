@@ -30,6 +30,14 @@ body {
   border-radius: 10px;
 }
 
+/* For small screens: make background lighter and reduce height */
+@media (max-width: 1000px) {
+  .landing-wrapper {
+    height: 80vh; /* or any value less than 100vh */
+    background-color: rgba(248, 249, 255, 0.7); /* light overlay color */
+    background-blend-mode: lighten; /* blend bg color with bg image */
+  }
+}
 /* 
  * Navigation styling 
  * Extends Bootstrap's navbar component with custom styling
